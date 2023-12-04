@@ -34,7 +34,7 @@ class PetugasController extends GetxController {
     try {
       isLoading.value == true;
       var res =
-          await axios.get(Uri.parse('http://192.168.235.94:5000/petugas'));
+          await axios.get(Uri.parse('http://localhost:5000/petugas'));
       print(res);
 
       if (res.statusCode == 200) {
@@ -60,7 +60,7 @@ class PetugasController extends GetxController {
     };
 
     final response = await axios.post(
-        Uri.parse('http://192.168.235.94:5000/petugas'),
+        Uri.parse('http://localhost:5000/petugas'),
         headers: {"content-type": "application/json"},
         body: jsonEncode(datas));
     if (response.statusCode == 201) {
@@ -88,7 +88,7 @@ class PetugasController extends GetxController {
       "level": editLevelController.text,
     };
     final response = await axios.patch(
-        Uri.parse('http://192.168.235.94:5000/petugas/${id}'),
+        Uri.parse('http://localhost:5000/petugas/${id}'),
         headers: {"content-type": "application/json"},
         body: jsonEncode(datas));
     if (response.statusCode == 201) {
@@ -107,7 +107,7 @@ class PetugasController extends GetxController {
 
   Future<bool> deleteData(id) async {
     final response = await axios.delete(
-        Uri.parse('http://192.168.235.94:5000/petugas/${id}'),
+        Uri.parse('http://localhost:5000/petugas/${id}'),
         headers: {"content-type": "application/json"});
     if (response.statusCode == 201) {
       return true;

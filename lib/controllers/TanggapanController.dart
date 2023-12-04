@@ -18,7 +18,7 @@ class TanggapanController extends GetxController {
     try{
       data.value = [];
       loading.value = true;
-      var response = await fetch.get(Uri.parse("http://192.168.235.94:5000/tanggapan")); // proses
+      var response = await fetch.get(Uri.parse("http://localhost:5000/tanggapan")); // proses
       loading.value = false;
       final dataPengaduan = jsonDecode(response.body); // output
       for(Map<String,dynamic> pengaduan in dataPengaduan){
@@ -34,7 +34,7 @@ class TanggapanController extends GetxController {
       loading.value = true;
       data["tgl_tanggapan"] = data["tgl_tanggapan"].toString();
       var response = await fetch.post(
-        Uri.parse("http://192.168.235.94:5000/tanggapan"),
+        Uri.parse("http://localhost:5000/tanggapan"),
         body:jsonEncode(data),
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ class TanggapanController extends GetxController {
       loading.value = true;
       data["tgl_tanggapan"] = data["tgl_tanggapan"].toString();
       var response = await fetch.patch(
-        Uri.parse("http://192.168.235.94:5000/tanggapan/${id}"),
+        Uri.parse("http://localhost:5000/tanggapan/${id}"),
         body:jsonEncode(data),
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ class TanggapanController extends GetxController {
     try{
       loading.value = true;
       var response = await fetch.delete(
-        Uri.parse("http://192.168.235.94:5000/tanggapan/${id}"),
+        Uri.parse("http://localhost:5000/tanggapan/${id}"),
       );
       loading.value = false;
 

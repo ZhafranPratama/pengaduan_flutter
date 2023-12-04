@@ -58,9 +58,7 @@ class ReadPetugas extends StatelessWidget {
                                     textStyle: const TextStyle(fontSize: 20),
                                   ),
                                   onPressed: () {
-                                    petugasController.deleteData(
-                                        petugasController
-                                            .listpetugas[index].idPetugas);
+                                    petugasController.deleteData(petugasController.listpetugas[index].idPetugas);
                                     // ignore: invalid_use_of_protected_member
                                     petugasController.listpetugas.value.clear();
                                     petugasController.getData();

@@ -31,7 +31,7 @@ class MasyarakatController extends GetxController {
     try {
       isLoading.value == true;
       var res =
-          await axios.get(Uri.parse('http://192.168.127.94:5000/masyarakat'));
+          await axios.get(Uri.parse('http://localhost:5000/masyarakat'));
       print(res);
 
       if (res.statusCode == 200) {
@@ -56,7 +56,7 @@ class MasyarakatController extends GetxController {
     };
 
     final response = await axios.post(
-        Uri.parse('http://192.168.127.94:5000/masyarakat'),
+        Uri.parse('http://localhost:5000/masyarakat'),
         headers: {"content-type": "application/json"},
         body: jsonEncode(datas));
     if (response.statusCode == 201) {
@@ -83,7 +83,7 @@ class MasyarakatController extends GetxController {
       "telp": editTelpController.text,
     };
     final response = await axios.patch(
-        Uri.parse('http://192.168.127.94:5000/masyarakat/${nik}'),
+        Uri.parse('http://localhost:5000/masyarakat/${nik}'),
         headers: {"content-type": "application/json"},
         body: jsonEncode(datas));
     if (response.statusCode == 201) {
@@ -102,7 +102,7 @@ class MasyarakatController extends GetxController {
 
   Future<bool> deleteData(nik) async {
     final response = await axios.delete(
-        Uri.parse('http://192.168.127.94:5000/masyarakat/${nik}'),
+        Uri.parse('http://localhost:5000/masyarakat/${nik}'),
         headers: {"content-type": "application/json"});
     if (response.statusCode == 201) {
       return true;

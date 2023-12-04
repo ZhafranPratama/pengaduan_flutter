@@ -83,7 +83,7 @@ class _CreatePengaduan extends State<CreatePengaduan> {
                         hint: Row(
                           children: [
                             Expanded(
-                              child: Text('Pilih Nik',
+                              child: Text('Pilih Masyarakat',
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
@@ -115,7 +115,7 @@ class _CreatePengaduan extends State<CreatePengaduan> {
                         ),
                         items: masyarakatController.listmasyarakat.map((masyarakat) => DropdownMenuItem(
                           value: masyarakat.nik,
-                          child: Text(masyarakat.nik.toString(),style: const TextStyle(fontSize: 14,color: Colors.white)),
+                          child: Text(masyarakat.nama.toString(),style: const TextStyle(fontSize: 14,color: Colors.white)),
                         )).toList(),
                         value: data["nik"],
                         onChanged: (String? value) => data["nik"] = value!,

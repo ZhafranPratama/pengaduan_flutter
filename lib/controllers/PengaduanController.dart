@@ -25,7 +25,7 @@ class PengaduanController extends GetxController{
     try{
       data.value = [];
       loading.value = true;
-      var response = await axios.get(Uri.parse("http://192.168.235.94:5000/pengaduan"));
+      var response = await axios.get(Uri.parse("http://localhost:5000/pengaduan"));
       loading.value = false;
         final dataPengaduan = jsonDecode(response.body);
         for(Map<String,dynamic> pengaduan in dataPengaduan){
@@ -40,7 +40,7 @@ class PengaduanController extends GetxController{
     if(data["status"] != "0" && data["status"] != "proses" && data["status"] != "selesai") return "Status antara proses,selesai atau 0";
     if(!web.value) return "tidak ada gambar";
 
-    final url = Uri.parse('http://192.168.235.94:5000/pengaduan');
+    final url = Uri.parse('http://localhost:5000/pengaduan');
     var request = axios.MultipartRequest('POST', url);
     request.files.add(
       axios.MultipartFile.fromBytes(
@@ -65,7 +65,7 @@ class PengaduanController extends GetxController{
   updateData (Map data,id) async {
     if(data["status"] != "0" && data["status"] != "proses" && data["status"] != "selesai") return "Status antara proses,selesai atau 0";
 
-    final url = Uri.parse('http://192.168.235.94:5000/pengaduan/${id}');
+    final url = Uri.parse('http://localhost:5000/pengaduan/${id}');
     var request = axios.MultipartRequest('PATCH', url);
     if(imagePicked != null){
       request.files.add(
@@ -94,7 +94,7 @@ class PengaduanController extends GetxController{
     try{
       loading.value = true;
       var response = await axios.delete(
-        Uri.parse("http://192.168.235.94:5000/pengaduan/${id}"),
+        Uri.parse("http://localhost:5000/pengaduan/${id}"),
       );
       loading.value = false;
 

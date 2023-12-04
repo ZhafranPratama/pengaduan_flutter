@@ -55,7 +55,7 @@ class _CreateTanggapanState extends State<CreateTanggapan> {
                       hint: Row(
                         children: [
                           Expanded(
-                            child: Text('Pilih Id Pengaduan',
+                            child: Text('Pilih Pengaduan',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class _CreateTanggapanState extends State<CreateTanggapan> {
                       ),
                       items: pengaduanController.data.map((masyarakat) => DropdownMenuItem(
                         value: masyarakat.idPengaduan,
-                        child: Text(masyarakat.idPengaduan.toString(),style: const TextStyle(fontSize: 14,color: Colors.white)),
+                        child: Text(masyarakat.isiLaporan.toString(),style: const TextStyle(fontSize: 14,color: Colors.white)),
                       )).toList(),
                       value: data["id_pengaduan"],
                       onChanged: (int? value) => data["id_pengaduan"] = value!,
@@ -131,7 +131,7 @@ class _CreateTanggapanState extends State<CreateTanggapan> {
                       hint: Row(
                         children: [
                           Expanded(
-                            child: Text('Pilih Id Petugas',
+                            child: Text('Pilih Petugas',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -163,7 +163,7 @@ class _CreateTanggapanState extends State<CreateTanggapan> {
                       ),
                       items: petugasController.listpetugas.map((petugas) => DropdownMenuItem(
                         value: petugas.idPetugas,
-                        child: Text(petugas.idPetugas.toString(),style: const TextStyle(fontSize: 14,color: Colors.white)),
+                        child: Text(petugas.nama_petugas.toString(),style: const TextStyle(fontSize: 14,color: Colors.white)),
                       )).toList(),
                       value: data["id_petugas"],
                       onChanged: (Object? value) => data["id_petugas"] = value!,
